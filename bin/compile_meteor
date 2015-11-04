@@ -62,10 +62,6 @@ build() {
     fi
     set -e  # back to failing if any command fails
     meteor build ../build --directory 2>&1 | indent
-    (ls ..)
-    (ls ../build)
-    (ls ../build/bundle)
-    (ls ../build/bundle/programs)
     head "Installing App's NPM Dependencies"
     (cd ../build/bundle/programs/server && npm install 2>&1 | indent)
     cd $BUILD_DIR && rm -rf $APP_SOURCE
