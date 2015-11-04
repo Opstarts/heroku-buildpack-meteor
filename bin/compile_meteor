@@ -61,12 +61,13 @@ build() {
       meteor remove-platform android 2>&1 | indent
     fi
     set -e  # back to failing if any command fails
-    meteor build ../build --directory 2>&1 | indent
-    (ls ../build)
+    meteor build ../../build --directory 2>&1 | indent
+    (ls ..)
+    (ls ../../build)
     (ls ../build/bundle)
     (ls ../build/bundle/programs)
     head "Installing App's NPM Dependencies"
-    (cd ../build/bundle/programs/server && npm install 2>&1 | indent)
+    (cd ../../build/bundle/programs/server && npm install 2>&1 | indent)
     cd $BUILD_DIR && rm -rf $APP_SOURCE
   )
 }
@@ -76,7 +77,7 @@ build() {
 
 fetch_meteor
 
-($APP_SOURCE/clone_repo.sh)
+(cd $APP_SOURCE && ./clone_repo.sh)
 (cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-core && npm install)
 (cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm install)
 
