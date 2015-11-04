@@ -83,7 +83,7 @@ fetch_meteor
 (cd $BUILD_DIR/webworker && npm install)
 (cd $BUILD_DIR/webworker && npm link opstarts-core)
 (cd $BUILD_DIR/webworker && npm link opstarts-calcengine)
-(cd $BUILD_DIR/webworker && ./node_modules/.bin/webpack --colors --progress &)
+(cd $BUILD_DIR/webworker && ./node_modules/.bin/webpack --colors &)
 
 build
 
