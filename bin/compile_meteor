@@ -72,6 +72,12 @@ build() {
 [ ! -d $CACHE_DIR ] && mkdir $CACHE_DIR
 
 fetch_meteor
+(./$APP_SOURCE/clone_repo.sh)
+(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-core && npm install)
+(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm install)
+(cd ../webworker && npm install)
+(cd ../webworker && ./node_modules/.bin/webpack --watch --colors --progress &)
+
 build
 
 if [ -f $BUILD_DIR/bin/post_compile ] ; then
