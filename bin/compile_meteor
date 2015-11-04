@@ -73,6 +73,7 @@ build() {
 
 fetch_meteor
 
+(ls $APP_SOURCE)
 (.$APP_SOURCE/clone_repo.sh)
 (cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-core && npm install)
 (cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm install)
