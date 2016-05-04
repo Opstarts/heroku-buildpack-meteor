@@ -75,15 +75,8 @@ build() {
 fetch_meteor
 
 (cd $APP_SOURCE && ./clone_repo.sh)
-(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-core && npm install)
-(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-core && npm link)
-(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm install)
-(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm link opstarts-core)
-(cd $APP_SOURCE/packages/opstarts-calcengine/pure-node/opstarts-calcengine && npm link)
 
 (cd $BUILD_DIR/webworker && npm install)
-(cd $BUILD_DIR/webworker && npm link opstarts-core)
-(cd $BUILD_DIR/webworker && npm link opstarts-calcengine)
 (cd $BUILD_DIR/webworker && ./node_modules/.bin/webpack --colors &)
 
 build
